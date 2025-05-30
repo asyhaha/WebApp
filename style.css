@@ -1,0 +1,278 @@
+/* Common styles for all pages */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background-color: #f5f5fb; /* very light purple-ish */
+}
+
+.container {
+  max-width: 850px;
+  margin: 40px auto;
+  padding: 0 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(90, 50, 110, 0.1);
+  padding: 2rem;
+}
+
+/* Headings */
+h2, h3 {
+  text-align: center;
+  color: #5a3270; /* deep purple */
+  margin-bottom: 1rem;
+}
+
+/* New tight h4 class for small centered purple text */
+h4.tight {
+  color: #000; /* black color */
+  text-align: center;
+  margin: 2px 0;
+  line-height: 1.2;
+}
+
+/* Form Styles */
+form {
+  width: 100%;
+}
+
+/* Fieldset styling */
+fieldset {
+  border: 1px solid #b49fcc; /* soft purple border */
+  border-radius: 6px;
+  padding: 1rem 1.5rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+legend {
+  font-weight: bold;
+  padding: 0 10px;
+  color: #5a3270;
+}
+
+/* Label and input horizontal alignment */
+.form-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.form-row label {
+  flex: 1 0 180px;
+  font-weight: bold;
+  color: #6e4a8e; /* medium purple */
+  padding-right: 10px;
+  min-width: 160px;
+  white-space: nowrap;
+}
+
+.form-row input[type="text"],
+.form-row input[type="email"],
+.form-row input[type="date"],
+.form-row input[type="time"],
+.form-row input[type="number"],
+.form-row select {
+  flex: 2 0 300px;
+  padding: 0.5rem;
+  border: 1px solid #d2c3e2; /* light purple */
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.form-row input[type="text"]:focus,
+.form-row input[type="email"]:focus,
+.form-row input[type="date"]:focus,
+.form-row input[type="time"]:focus,
+.form-row input[type="number"]:focus,
+.form-row select:focus {
+  border-color: #5a3270;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(90, 50, 112, 0.3);
+}
+
+/* Checkbox and radio group styling */
+.checkbox-group, .radio-group {
+  flex: 2 0 300px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.checkbox-group label,
+.radio-group label {
+  font-weight: normal;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #6e4a8e;
+}
+
+/* Special handling for Lokasi "lain-lain" text input */
+#lokasiLainWrapper {
+  margin-top: 0.5rem;
+  max-width: 300px;
+}
+
+#lokasiLain {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #d2c3e2;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+#lokasiLain:focus {
+  border-color: #5a3270;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(90, 50, 112, 0.3);
+}
+
+/* Dropdown with conditional text field for Nama Tetamu Kehormat */
+#namaTetamuInput {
+  margin-top: 0.5rem;
+  max-width: 400px;
+}
+
+#namaTetamuInput input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #d2c3e2;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+#namaTetamuInput input[type="text"]:focus {
+  border-color: #5a3270;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(90, 50, 112, 0.3);
+}
+
+/* Button container */
+.center {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+button[type="submit"] {
+  background-color: #5a3270; /* main purple */
+  color: white;
+  border: none;
+  padding: 0.7rem 2rem;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #3e2350; /* darker purple on hover */
+}
+
+/* Result output styling */
+#result {
+  background-color: #ede7f6; /* very light purple */
+  border: 1px solid #5a3270;
+  border-radius: 5px;
+  padding: 1rem 1.5rem;
+  margin-top: 2rem;
+  color: #3e2350;
+}
+
+#result p {
+  margin: 2px 0; /* very close between items */
+}
+
+#result h4 {
+  margin-top: 1.5rem; /* bigger space above new section */
+  margin-bottom: 0.5rem; /* small space below section title */
+  color: #000; /* ensure it's black */
+  text-align: center;
+  font-weight: bold;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .form-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .form-row label {
+    margin-bottom: 0.3rem;
+  }
+  
+  .checkbox-group, .radio-group {
+    flex: 1 0 100%;
+  }
+}
+
+/* Profile page specific */
+header {
+  text-align: center;
+  margin-top: 40px;
+}
+
+header h1 {
+  color: #5a3270;
+  margin-bottom: 0.5rem;
+}
+
+nav {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #5a3270;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  max-width: 850px;
+  margin: 0 auto 40px;
+  padding: 2rem 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(90, 50, 110, 0.1);
+  text-align: center;
+}
+
+main img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 8px rgba(90, 50, 110, 0.3);
+}
+
+main p {
+  margin: 0.5rem 0;
+  color: #3e2350;
+  font-weight: 600;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  background-color: #ede7f6; /* light purple */
+  color: #5a3270;
+  font-size: 0.9rem;
+  margin-top: 40px;
+}
+

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Borang Permohonan Kemudahan/Dewan</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="valid.js" defer></script>
+  <script>
+    // Show/hide Lain-lain lokasi textfield
+    function toggleLainLainLokasi() {
+      const lainRadio = document.getElementById("lokasiLainRadio");
+      const lainText = document.getElementById("lokasiLainText");
+      lainText.style.display = lainRadio.checked ? "inline-block" : "none";
+    }
+
+    // Show/hide Nama Tetamu Kehormat textfields
+    function toggleTetamuNama() {
+      const tetamuSelect = document.getElementById("namaTetamuKehormat");
+      const tetamuNamaFields = document.getElementById("tetamuNamaFields");
+      tetamuNamaFields.style.display = tetamuSelect.value === "ada" ? "block" : "none";
+    }
+  </script>
+</head>
+<body>
+
+  <header style="background-color:#4B0082; color: white; padding: 10px 20px;">
+    <h1 style="margin:0; font-size: 1.8rem; color: #f0f0f0; font-weight: bold; text-shadow: 1px 1px 3px black;">UiTM Facility Unit</h1>
+    <nav style="margin-top: 5px;">
+      <a href="index.html" style="color: white; text-decoration:none; margin-right: 15px;">My Profile</a>
+      <a href="form.html" style="color: white; text-decoration:none;">Form</a>
+    </nav>
+  </header>
+
+  <div class="container" style="padding: 20px;">
+
+    <div style="text-align: center; margin-bottom: 10px;">
+      <img src="full-logo.png" alt="UiTM Logo" style="width: 220px;" />
+    </div>
+    <h4 class="tight">UNIT MAJLIS</h4>
+    <h4 class="tight">BAHAGIAN FASILITI</h4>
+    <h4 class="tight">03-5544 2290/2375/2314</h4>
+    <h4 class="tight">TALIAN KHIDMAT PELANGGAN : 03-5544 2290</h4>
+    <h3 style="text-align:center; color: #000000;">BORANG PERMOHONAN KEMUDAHAN/DEWAN</h3>
+
+    <form id="borangForm" onsubmit="paparKeputusan(event)">
+      <fieldset>
+        <legend>A. BUTIRAN MAJLIS</legend>
+
+        <label for="tajuk" class="inline-label">1. Tajuk Majlis:</label>
+        <input type="text" id="tajuk" required class="inline-input" /><br />
+
+        <label class="inline-label">2. Tarikh Majlis:</label>
+        Dari <input type="date" id="tarikhDari" required class="small-input" />
+        Hingga <input type="date" id="tarikhHingga" required class="small-input" /><br />
+
+        <label class="inline-label">Masa:</label>
+        Dari <input type="time" id="masaDari" required class="small-input" />
+        Hingga <input type="time" id="masaHingga" required class="small-input" /><br />
+
+        <label for="raptai" class="inline-label">3. Tarikh Raptai (jika ada):</label>
+        <input type="date" id="raptai" class="small-input" />
+        Masa: <input type="time" id="masaRaptai" class="small-input" /><br />
+
+        <label class="inline-label">4. Lokasi:</label>
+        <input type="radio" id="dsb" name="lokasi" value="Dewan Seri Budiman" onclick="toggleLainLainLokasi()" required />
+        <label for="dsb">Dewan Seri Budiman</label>
+
+        <input type="radio" id="asb" name="lokasi" value="Anjung Seri Budiman" onclick="toggleLainLainLokasi()" />
+        <label for="asb">Anjung Seri Budiman</label>
+
+        <input type="radio" id="datc" name="lokasi" value="Dewan Agung Tuanku Canselor" onclick="toggleLainLainLokasi()" />
+        <label for="datc">Dewan Agung Tuanku Canselor</label>
+
+        <input type="radio" id="lokasiLainRadio" name="lokasi" value="Lain-lain" onclick="toggleLainLainLokasi()" />
+        <label for="lokasiLainRadio">Lain-lain:</label>
+        <input type="text" id="lokasiLainText" style="display:none; width:200px;" placeholder="Nyatakan lokasi lain" /><br />
+
+        <label class="inline-label">5. Jumlah Penyertaan:</label>
+        VIP: <input type="number" id="vip" min="0" class="tiny-input" />
+        Tetamu: <input type="number" id="tetamu" min="0" class="tiny-input" />
+        Pelajar: <input type="number" id="pelajar" min="0" class="tiny-input" /><br />
+
+        <label for="namaTetamuKehormat" class="inline-label">6. Tetamu Kehormat:</label>
+        <select id="namaTetamuKehormat" onchange="toggleTetamuNama()">
+          <option value="tiada">Tiada</option>
+          <option value="ada">Ada</option>
+        </select><br />
+
+        <div id="tetamuNamaFields" style="display:none; margin-top:5px;">
+          <input type="text" id="tetamu1" placeholder="Nama Tetamu 1" style="width:300px; margin-bottom:5px;" /><br />
+          <input type="text" id="tetamu2" placeholder="Nama Tetamu 2" style="width:300px;" />
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>B. ORGANISASI PENGANJUR</legend>
+        <label for="organisasi" class="inline-label">Organisasi (Fak/Jab/Persatuan):</label>
+        <input type="text" id="organisasi" class="inline-input" /><br />
+
+        <label for="penasihat" class="inline-label">Nama Penasihat/Pengerusi:</label>
+        <input type="text" id="penasihat" class="inline-input" /><br />
+
+        <label for="telPejabat1" class="inline-label">Tel Pejabat:</label>
+        <input type="text" id="telPejabat1" class="small-input" />
+        <label for="telBimbit1" class="inline-label" style="margin-left:20px;">Tel Bimbit:</label>
+        <input type="text" id="telBimbit1" class="small-input" /><br />
+
+        <label for="email1" class="inline-label">Email:</label>
+        <input type="email" id="email1" class="inline-input" />
+      </fieldset>
+
+      <fieldset>
+        <legend>C. BUTIR-BUTIR PEMOHON</legend>
+        <label for="pemohon" class="inline-label">Nama Pemohon:</label>
+        <input type="text" id="pemohon" required class="inline-input" /><br />
+
+        <label for="jawatan" class="inline-label">Jawatan:</label>
+        <input type="text" id="jawatan" class="small-input" />
+
+        <label for="noPelajar" class="inline-label" style="margin-left:20px;">No Kakitangan/No Pelajar:</label>
+        <input type="text" id="noPelajar" class="small-input" /><br />
+
+        <label for="fakulti" class="inline-label">Fakulti/Bhg/Pej:</label>
+        <input type="text" id="fakulti" class="inline-input" />
+
+        <label for="telPejabat2" class="inline-label" style="margin-left:20px;">Tel Pejabat:</label>
+        <input type="text" id="telPejabat2" class="small-input" /><br />
+
+        <label for="telBimbit2" class="inline-label">Tel Bimbit:</label>
+        <input type="text" id="telBimbit2" class="small-input" />
+
+        <label for="email2" class="inline-label" style="margin-left:20px;">Email:</label>
+        <input type="email" id="email2" class="inline-input" />
+      </fieldset>
+
+      <div class="pengakuan">
+        <strong>PENGAKUAN PEMOHON</strong><br />
+        <p>SAYA MENGAKU AKAN BERTANGGUNGJAWAB ATAS SEGALA KEMUDAHAN</p>
+      </div>
+
+      <div class="center">
+        <button type="submit">HANTAR</button>
+      </div>
+    </form>
+
+    <div id="result" style="margin-top: 20px;"></div>
+  </div>
+
+  <footer style="text-align: center; padding: 15px; background-color: #eee; margin-top: 40px;">
+    <p>&copy; 2025 Universiti Teknologi Mara. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
